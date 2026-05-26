@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
+import MobileNav from "@/components/MobileNav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -79,6 +80,7 @@ export default function RecruitmentPage() {
   return (
     <>
       <Nav active="recruitment" />
+      <MobileNav active="recruitment" />
 
       <section className="ph">
         <div className="ph-grid">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
+import MobileNav from "@/components/MobileNav";
 import Footer from "@/components/Footer";
 import MiniCTA from "@/components/MiniCTA";
 import ProcessParallax from "@/components/ProcessParallax";
@@ -58,6 +59,7 @@ export default function ProcessPage() {
   return (
     <>
       <Nav active="process" />
+      <MobileNav active="process" />
 
       <section className="ph">
         <div className="ph-grid">

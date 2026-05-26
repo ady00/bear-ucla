@@ -1049,3 +1049,309 @@ h1.display .amp {
   .bear-col { min-height: 520px; }
   .stats { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* =============================================================
+   MOBILE NAV + RESPONSIVE OVERRIDES (≤ 1024px)
+   -------------------------------------------------------------
+   New mobile bucket. Hides the desktop .nav, shows a slim top
+   bar (.mnav) with just the brand mark, and exposes a fixed
+   bottom-left hamburger FAB (.mnav-fab) that opens a full-screen
+   overlay (.mnav-overlay). Hero bear column is hidden per spec.
+   ============================================================= */
+
+/* Mobile nav surfaces are hidden by default (desktop). */
+.mnav,
+.mnav-fab,
+.mnav-overlay,
+.hero-mobile-caption { display: none; }
+
+@media (max-width: 1024px) {
+  /* Hide desktop nav, expose mobile nav. */
+  .nav { display: none; }
+  /* Leave room at the bottom of every page for the FAB. */
+  body { padding-bottom: 96px; }
+
+  /* Slim mobile top bar */
+  .mnav {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center;
+    padding: 12px 20px;
+    background: rgba(246, 245, 241, 0.82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .mnav-brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-display), sans-serif;
+    font-size: 18px; color: var(--blue);
+    letter-spacing: 0.01em; line-height: 1;
+  }
+  .mnav-brand .mark-wrap {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--blue); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .mnav-brand .mark-wrap svg { width: 20px; height: 20px; display: block; }
+
+  /* Bottom-left FAB */
+  .mnav-fab {
+    position: fixed;
+    left: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 60;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--ink); color: var(--paper);
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+    animation: bearPulse 2.4s ease-out 1;
+  }
+  .mnav-fab:hover { background: var(--blue); }
+  .mnav-fab:active { transform: scale(0.96); }
+  .mnav-fab-bars {
+    display: flex; flex-direction: column; gap: 5px;
+    width: 22px;
+  }
+  .mnav-fab-bars > span {
+    display: block; height: 2px; width: 100%;
+    background: currentColor; border-radius: 2px;
+  }
+
+  /* Overlay menu */
+  .mnav-overlay {
+    position: fixed; inset: 0; z-index: 70;
+    background: var(--paper); color: var(--ink);
+    display: none;
+    flex-direction: column;
+    padding: 20px 28px max(28px, env(safe-area-inset-bottom));
+    overflow-y: auto;
+  }
+  .mnav-overlay.is-open { display: flex; }
+  .mnav-overlay-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mnav-close {
+    width: 44px; height: 44px;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--ink);
+  }
+  .mnav-links {
+    display: flex; flex-direction: column;
+    gap: 0; margin-top: 22px;
+    flex: 1;
+  }
+  .mnav-link {
+    position: relative;
+    display: block;
+    font-family: var(--font-display), sans-serif;
+    font-size: clamp(28px, 7.5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateY(12px);
+    /* `mnavRiseIn` animates BOTH transform and opacity to 1. The shared
+       `rise` keyframe only animates transform, which left links stuck
+       at opacity 0. */
+    animation: mnavRiseIn 0.55s cubic-bezier(.2, .8, .2, 1) forwards;
+  }
+  @keyframes mnavRiseIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .mnav-link.is-active { color: var(--blue); }
+  .mnav-link.is-active::after {
+    content: "";
+    position: absolute; left: 0; bottom: -1px;
+    width: 36px; height: 2px; background: var(--blue);
+  }
+  .mnav-foot {
+    display: flex; flex-direction: column; align-items: stretch;
+    gap: 14px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+  }
+  .mnav-cta {
+    justify-content: center;
+    padding: 16px 22px;
+    font-size: 14px;
+    width: 100%;
+  }
+  .mnav-foot .chip { align-self: flex-start; }
+
+  /* Hero — drop bear column, single column */
+  .hero { padding: 16px 20px 32px; min-height: 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero .bear-col { display: none; }
+  /* Override inline whiteSpace: nowrap on the "Hands-on. By design." h2. */
+  #what .section-head h2 { white-space: normal !important; }
+  .lede { max-width: none; font-size: 17px; margin-top: 18px; }
+  .cta-row { gap: 10px; margin-top: 18px; }
+  .hero-mobile-caption {
+    display: block;
+    margin-top: 28px;
+    font-family: var(--font-mono), monospace;
+    font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(10, 10, 10, 0.5);
+    line-height: 1.7;
+  }
+
+  /* Parallax bands — tighten gap, keep behavior */
+  .pband-track { gap: 40px; }
+
+  /* Sections */
+  .section { padding: 64px 20px; }
+  .section--tight { padding-top: 40px; padding-bottom: 40px; }
+
+  /* Teams: tighter padding; override inline name fontSize. */
+  .team { padding: 40px 0; }
+  .team .lead .name {
+    /* Override inline `style={{ fontSize: ... }}` on home page. */
+    font-size: clamp(48px, 9vw, 72px) !important;
+  }
+  .ts-card { padding: 22px 22px; }
+
+  /* Testimonials */
+  .ts-row { padding: 32px 0; gap: 18px; }
+  .ts-row .quote { padding-top: 44px; }
+  .ts-row .quote::before { font-size: 64px; left: -2px; top: -8px; }
+
+  /* Mini-CTA */
+  .mini-cta { padding: 56px 20px; }
+  .mc-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .mc-inner h3 { font-size: clamp(40px, 9vw, 64px); }
+  .mc-actions { flex-direction: column; align-items: stretch; width: 100%; }
+  .mc-actions .btn,
+  .mc-actions .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer { padding: 48px 20px 28px; }
+  .ftr-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  /* Page header (subpages) */
+  .ph { padding: 40px 20px 28px; }
+  .ph-grid { gap: 24px; }
+  /* `!important` overrides inline `style={{ fontSize: "14px" }}` on the
+     members page lede — the 14px reads as too small on phones. */
+  .ph-lede { font-size: 17px !important; }
+
+  /* Process */
+  .process { padding: 40px 20px 64px; }
+  .process-rail { gap: 16px; }
+  .phase-stick { position: static; flex-direction: row; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .phase-stick .ph-num { font-size: 80px; }
+  .phase-stick .ph-bar { width: 140px; }
+  .pstep { padding: 24px 0 30px 22px; }
+
+  /* Members */
+  .members { padding: 40px 20px 64px; }
+  .grid-members { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+  .avatar { width: 120px; height: 120px; }
+  .member .name { font-size: 16px; }
+  .avatar .initials { font-size: 36px; }
+  .tabs { gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 8px 14px; font-size: 10.5px; }
+
+  /* Recruitment */
+  .apply { padding: 56px 20px; }
+  .apply-inner { gap: 24px; }
+  .tl-rail { grid-template-columns: 1fr 1fr; }
+  .tl-cell { padding: 22px 18px; min-height: 0; }
+  .tl-cell .what { font-size: 22px; }
+  .step { padding: 22px 22px 24px; }
+  .faq summary { font-size: 18px; gap: 16px; }
+}
+
+/* Phone tightening (≤ 640px) */
+@media (max-width: 640px) {
+  .ticker { font-size: 10.5px; }
+
+  .hero { padding: 12px 16px 24px; }
+  .hero h1.display { font-size: clamp(52px, 14vw, 96px); }
+  .cta-row { gap: 8px; }
+  .cta-row .btn,
+  .cta-row .btn-ghost {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 12px 14px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+  }
+
+  .section { padding: 48px 16px; }
+  .section--tight { padding-top: 32px; padding-bottom: 32px; }
+  .section-head h2 { font-size: clamp(36px, 11vw, 56px); }
+
+  .team .lead .name { font-size: clamp(40px, 12vw, 60px) !important; }
+  .team .cards { gap: 14px; }
+  .ts-card { padding: 18px 18px; }
+  .ts-card h4 { font-size: 20px; }
+
+  .ts-row .lhs .name { font-size: clamp(28px, 9vw, 40px); }
+  .ts-row .quote p { font-size: 16px; }
+
+  .mini-cta { padding: 48px 16px; }
+  .mc-inner h3 { font-size: clamp(36px, 11vw, 56px); }
+
+  .footer { padding: 40px 16px 28px; }
+  .ftr-grid { grid-template-columns: 1fr; gap: 24px; }
+  .ftr-bot { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  .ph { padding: 32px 16px 24px; }
+
+  .process { padding: 32px 16px 48px; }
+  .phase-stick .ph-num { font-size: 64px; }
+  .phase-stick .ph-bar { width: 110px; }
+  .pstep { padding: 20px 0 26px 18px; }
+  .pstep h3 { font-size: clamp(26px, 8vw, 36px); }
+
+  .members { padding: 32px 16px 48px; }
+  .avatar { width: 100px; height: 100px; }
+  .avatar .initials { font-size: 30px; }
+  .tab { font-size: 10px; padding: 7px 12px; }
+
+  .tl-rail { grid-template-columns: 1fr; }
+  .tl-cell { border-right: 0; }
+  .apply { padding: 48px 16px; }
+  .apply-inner h2 { font-size: clamp(44px, 13vw, 72px); }
+  .apply-actions { width: 100%; align-items: stretch; }
+  .apply-actions .btn,
+  .apply-actions .btn-ghost { width: 100%; justify-content: center; }
+  .faq summary { font-size: 17px; }
+  .faq p { font-size: 14.5px; }
+
+  .mnav-overlay { padding: 16px 22px max(24px, env(safe-area-inset-bottom)); }
+  .mnav-link { font-size: clamp(26px, 8vw, 34px); padding: 14px 0; }
+}
+
+/* iPhone SE / very narrow phones */
+@media (max-width: 380px) {
+  .ticker { font-size: 9.5px; letter-spacing: 0.16em; }
+  .hero h1.display { font-size: clamp(44px, 14vw, 72px); }
+  .cta-row .btn,
+  .cta-row .btn-ghost {
+    padding: 11px 12px;
+    font-size: 11.5px;
+  }
+  .mnav { padding: 10px 14px; }
+  .mnav-fab { width: 52px; height: 52px; left: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mnav-fab { animation: none; }
+  .mnav-link {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .chip .pulse { animation: none; }
+}

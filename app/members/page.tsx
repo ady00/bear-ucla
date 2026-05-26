@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import MobileNav from "@/components/MobileNav";
 import Footer from "@/components/Footer";
 import MiniCTA from "@/components/MiniCTA";
 
@@ -63,6 +64,7 @@ export default function MembersPage() {
   return (
     <>
       <Nav active="members" />
+      <MobileNav active="members" />
 
       <section className="ph">
         <div className="ph-grid">

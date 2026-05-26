@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import MobileNav from "@/components/MobileNav";
 import Footer from "@/components/Footer";
 import MiniCTA from "@/components/MiniCTA";
 import HomeInteractions from "@/components/HomeInteractions";
@@ -31,6 +32,7 @@ export default function Home() {
       </div>
 
       <Nav active="home" />
+      <MobileNav active="home" />
 
       {/* Hero */}
       <section className="hero" aria-label="Hero">
@@ -95,9 +97,13 @@ export default function Home() {
               </a>
             </div>
 
-            <div className = "mb-20"></div>
+            <div className="hero-mobile-caption" aria-hidden="true">
+              Est. 2017 · Los Angeles
+              <br />
+              Tuesdays @ Royce XYZ
+            </div>
 
-            
+            <div className="mb-20"></div>
           </div>
 
           <div className="bear-col">
