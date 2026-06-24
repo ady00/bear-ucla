@@ -16,22 +16,23 @@ const timeline = [
   {
     date: "Sep 22",
     what: "Info Session",
-    det: "Meet the leads, ask questions, hear from current consultants. Royce 156, 7pm.",
+    det: "Our executive board provides a rundown of the application process in-person.",
   },
   {
-    date: "Sep 28",
-    what: "Apps Close",
-    det: "Submissions close at 11:59pm PT. Decisions on first-rounds within 5 days.",
+    date: "Sep 22",
+    what: "Coffee Chats",
+    det: "Meet our members and get to know them in a more casual group setting.",
   },
+  
   {
     date: "Oct 3 — 12",
-    what: "Interviews",
-    det: "Two rounds — a behavioral conversation and a team-specific case or portfolio review.",
+    what: "Final Interviews",
+    det: "Two parts: a behavioral conversation and a team-specific case or portfolio review.",
   },
   {
     date: "Oct 18",
     what: "Offers Out",
-    det: "New cohort announced. Onboarding begins the following Monday.",
+    det: "New cohort announced. Onboarding begins the next week.",
   },
 ];
 
@@ -39,24 +40,24 @@ const steps = [
   {
     n: "01",
     h: "Submit the App",
-    p: "Tell us a bit about you, why Bear, and which team you're most excited about. Designers add a small portfolio link.",
+    p: "Tell us a bit about you, why Bear, and which team you're most excited about.",
   },
   {
     n: "02",
-    h: "Behavioral Round",
-    p: "A 25-minute conversation with two current members about how you think, work in teams, and what you'd want to ship.",
+    h: "Coffee Chats",
+    p: "A series of conversations with members about how you think, work in teams, and what you'd want to work on.",
   },
   {
     n: "03",
     h: "Final Round",
-    p: "A short case (Strategy / Marketing) or a portfolio walk-through (Design) with the team you'd be joining.",
+    p: "A short case oriented around your team of choice (Strategy / Marketing / Design) with the executive members.",
   },
 ];
 
 const faq = [
   {
     q: "Who can apply?",
-    a: "Any UCLA undergraduate, any year, any major. We've had consultants from CS, design, business economics, public affairs, English, materials science — the through-line is curiosity, not your major.",
+    a: "Any UCLA undergraduate, any year, any major. We've had consultants from CS, design, business economics, public affairs, English, materials science. We look for interest, not major.",
   },
   {
     q: "Do I need prior consulting experience?",
@@ -68,11 +69,11 @@ const faq = [
   },
   {
     q: "What's the time commitment?",
-    a: "Roughly 6–8 hours a week during a project — a weekly team meeting, a client check-in, and async work. Project cycles run about ten weeks.",
+    a: "Roughly 4–6 hours a week during a project (but this number fluctuates). A weekly team meeting, a client check-in, and async work.",
   },
   {
     q: "Do you recruit in winter or spring?",
-    a: "We hold one main recruitment in fall. Occasionally we open a small winter or spring round if a team has capacity — those get announced on Instagram.",
+    a: "We hold one main recruitment in fall. Occasionally we open a small winter or spring round if a team has capacity. those get announced on Instagram.",
   },
 ];
 
@@ -95,7 +96,7 @@ export default function RecruitmentPage() {
           </div>
           <p className="ph-lede">
             We recruit one cohort each fall. New consultants join one of three
-            teams — <em>strategy, marketing, and design</em> — and are placed
+            teams (<em>strategy, marketing, or design</em>) and are placed
             onto real client engagements from there.
           </p>
         </div>
@@ -104,16 +105,15 @@ export default function RecruitmentPage() {
       {/* Timeline */}
       <section className="section">
         <div className="swrap">
-          <div className="sh reveal">
+          <div className="sh">
             <div className="num">001 / Timeline</div>
             <h2>
               Recruitment <span className="blue">timeline.</span>
             </h2>
           </div>
-          <div className="tl-rail reveal">
+          <div className="tl-rail">
             {timeline.map((t) => (
-              <div className="tl-cell" key={t.date}>
-                <div className="date">{t.date}</div>
+              <div className="tl-cell" key={t.what}>
                 <div className="what">{t.what}</div>
                 <p className="det">{t.det}</p>
               </div>
@@ -125,7 +125,7 @@ export default function RecruitmentPage() {
       {/* How to apply */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="swrap">
-          <div className="sh reveal">
+          <div className="sh">
             <div className="num">002 / How to Apply</div>
             <h2>
               The rounds. <span className="blue"></span>
@@ -133,7 +133,7 @@ export default function RecruitmentPage() {
           </div>
           <div className="steps">
             {steps.map((s) => (
-              <div className="step reveal" key={s.n}>
+              <div className="step" key={s.n}>
                 <div className="n">{s.n}</div>
                 <h4>{s.h}</h4>
                 <p>{s.p}</p>
@@ -146,13 +146,13 @@ export default function RecruitmentPage() {
       {/* FAQ */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="swrap">
-          <div className="sh reveal">
+          <div className="sh">
             <div className="num">003 / FAQ</div>
             <h2>
               Common <span className="blue">questions.</span>
             </h2>
           </div>
-          <div className="faq reveal">
+          <div className="faq">
             {faq.map((f, i) => (
               <details key={i}>
                 <summary>
@@ -165,41 +165,7 @@ export default function RecruitmentPage() {
           </div>
         </div>
       </section>
-
-      {/* Apply CTA */}
-      <section className="apply" id="apply">
-        <div className="apply-inner">
-          <h2>
-            <span className="outlined">APPLY</span> FOR F26.
-          </h2>
-          <div className="apply-actions">
-            <a className="btn" href="#">
-              Open Application
-              <svg
-                className="arrow"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-              >
-                <path
-                  d="M2 14 L14 2 M5 2 H14 V11"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-            <a
-              className="btn-ghost"
-              href="mailto:hello@bearconsultingucla.com"
-            >
-              Email a Recruiter →
-            </a>
-          </div>
-        </div>
-      </section>
+      
 
       <Footer />
     </>

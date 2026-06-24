@@ -50,9 +50,6 @@ export default function Nav({ active }: { active: ActiveKey }) {
         </Link>
       </nav>
       <div className="nav-cta">
-        <span className="chip" title="Live status">
-          <span className="pulse"></span> Recruiting · F26
-        </span>
         <Link className="btn" href="/recruitment">
           <span>Apply</span>
           <Arrow />

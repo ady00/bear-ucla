@@ -32,20 +32,20 @@ const phases: Phase[] = [
   {
     num: "03",
     name: "Research & Development",
-    when: "Weeks 2–4",
+    when: "Weeks 2–3",
     body: "Our team members will conduct market research, analyze data, and develop design concepts or marketing strategies, with regular check-ins to ensure we're on track with your vision.",
   },
   {
     num: "04",
     name: "Midpoint Deliverable",
-    when: "Week 5",
-    body: "We present our progress, gather feedback, and refine the direction to ensure alignment with your goals and address any concerns.",
+    when: "Week 4",
+    body: "We present our progress, gather feedback, and refine to ensure full alignment with your goals and vision.",
   },
   {
     num: "05",
     name: "Final Deliverable",
-    when: "Week 10",
-    body: "We present the final results, providing a detailed walk-through of our work and key takeaways to ensure clarity and understanding. Any relevant documentation needed for implementation is also passed along.",
+    when: "Week 8",
+    body: "We present the final results, providing a detailed walk-through of our work and key takeaways to ensure clarity and understanding. Any work, artifacts, or documentation are transferred to your team.",
   },
   {
     num: "06",
@@ -111,7 +111,6 @@ export default function ProcessPage() {
                   role="listitem"
                 >
                   <div className="when">{p.when}</div>
-                  <div className="num">Phase {p.num}</div>
                   <h3>{p.name}</h3>
                   <p>{p.body}</p>
                 </div>
@@ -121,17 +120,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <MiniCTA
-        heading={
-          <>
-            Have a project in mind<span className="qm">?</span>
-          </>
-        }
-        primaryHref="mailto:hello@bearconsultingucla.com"
-        primaryLabel="Get in touch"
-        secondaryHref="/#teams"
-        secondaryLabel="Meet Our Teams"
-      />
+      
 
       <Footer />
       <ProcessParallax />

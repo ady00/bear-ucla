@@ -8,29 +8,6 @@ import HomeInteractions from "@/components/HomeInteractions";
 export default function Home() {
   return (
     <>
-      {/* Status banner */}
-      <div className="ticker" aria-label="Status">
-        <div className="ticker-stage" id="tickerStage">
-          <div className="ticker-item is-on">
-            <span>★</span>
-            <span className="tdot">●</span>
-            <span>Recruiting Now</span>
-            <span className="tdot">●</span>
-            <span>Fall 2026</span>
-          </div>
-          <div className="ticker-item">
-            <span>24 Consultants</span>
-            <span className="tdot">●</span>
-            <span>14 Client Partners</span>
-          </div>
-          <div className="ticker-item">
-            <span>Applications Open Sep 14</span>
-            <span className="tdot">●</span>
-            <span>Info Session Sep 22</span>
-          </div>
-        </div>
-      </div>
-
       <Nav active="home" />
       <MobileNav active="home" />
 
@@ -100,7 +77,7 @@ export default function Home() {
             <div className="hero-mobile-caption" aria-hidden="true">
               Est. 2017 · Los Angeles
               <br />
-              Tuesdays @ Royce XYZ
+              Tuesdays @ Royce Hall.
             </div>
 
             <div className="mb-20"></div>
@@ -123,9 +100,9 @@ export default function Home() {
               <div className = "pt-10">
                 
                 <div className="corner bl pt-10" style={{ fontSize: "10px" }}>
-                <br />Est. 2017 — Los Angeles
+                <br />Established 2017.
                 <br />
-                Tuesdays @ Royce XYZ.
+                Tuesdays @ Royce Hall.
                 <span className="big"></span>
               </div>
               </div>
@@ -197,37 +174,33 @@ export default function Home() {
 
       {/* What we do */}
       <section className="section section--tight" id="what" aria-label="What we do">
-        <div className="section-head reveal">
-          <div className="num">001 / What we do</div>
+        <div className="section-head no-num reveal">
           <h2 style={{ maxWidth: "none", whiteSpace: "nowrap" }}>
-            Hands-on. <span className="blue">By design.</span>
+            Meet the <span className="blue">Team.</span>
           </h2>
         </div>
         <div className="intro-grid reveal">
           <div
-            className="club-photo"
+            className="club-photo has-img"
             role="img"
-            aria-label="Photo of the club — placeholder"
-          >
-            <span className="club-photo-label">
-              Club photo placeholder. 16:9
-            </span>
-          </div>
+            aria-label="Photo of the Bear Consulting team"
+            style={{ backgroundImage: "url(/images/team-full.jpg)" }}
+          ></div>
           <div>
             <p>
-              Our consulting opportunities in strategy, marketing, and design
+              Our opportunities in strategy, marketing, and design
               allow members to gain hands-on experience across various fields.
             </p>
             <p>
               Projects vary based on the needs of each organization, and our
-              goal is to provide <em>actionable recommendations</em> that help
-              drive impact, while fostering learning and professional growth
+              goal is to provide <em>actionable recommendations</em> that
+              drive impact, while fostering learning
               for our team members.
             </p>
             <p>
             We boast three teams which specialize in a range of services, tailored to 
             meet the unique needs of each client. Every project is handled by a team
-          specifically assembled to address the goals and challenges of that
+          specifically assembled to address the goals and challenges of your
           particular organization.
             </p>
           </div>
@@ -236,8 +209,7 @@ export default function Home() {
 
       {/* Our Teams */}
       <section className="teams section" id="teams" aria-label="Our teams">
-        <div className="section-head reveal">
-          <div className="num">002 / Our Teams</div>
+        <div className="section-head no-num reveal">
           <h2>
             Three teams. <span className="blue">One direction.</span>
           </h2>
@@ -258,29 +230,19 @@ export default function Home() {
             <p className="desc">
               The Strategy Team focuses on understanding market dynamics,
               identifying growth opportunities, and providing actionable
-              insights to help your business thrive.
+              insights to help your business thrive. We perform data analysis, 
+              strategic planning, and market research for your business.
             </p>
           </div>
-          <div className="cards">
-            <div className="ts-card">
-              <h4>Tools</h4>
-              <ul>
-                <li>Excel / Google Sheets</li>
-                <li>PowerPoint / Google Slides</li>
-                <li>Market Research Platforms</li>
-                <li>SWOT &amp; other Strategic Frameworks</li>
-              </ul>
-            </div>
-            <div className="ts-card">
-              <h4>Skills</h4>
-              <ul>
-                <li>Data Analysis</li>
-                <li>Critical Thinking &amp; Problem-Solving</li>
-                <li>Business Acumen &amp; Financial Literacy</li>
-                <li>Strategic Planning &amp; Forecasting</li>
-              </ul>
-            </div>
-          </div>
+          <div
+            className="team-photo has-img"
+            role="img"
+            aria-label="Strategy team photo"
+            style={{
+              backgroundImage: "url(/images/strategy.jpg)",
+              backgroundPosition: "center top",
+            }}
+          ></div>
         </div>
 
         <div className="team reveal">
@@ -295,29 +257,16 @@ export default function Home() {
             <p className="desc">
               The Marketing Team works to elevate your brand&apos;s presence by
               crafting compelling strategies that resonate with your target
-              audience — across every channel.
+              audience, across every channel. They survey, do market research, and 
+              are active across social media and other grassroots channels. 
             </p>
           </div>
-          <div className="cards">
-            <div className="ts-card">
-              <h4>Tools</h4>
-              <ul>
-                <li>Social Media Platforms (Instagram, TikTok, etc.)</li>
-                <li>Microsoft Office</li>
-                <li>Figma / Canva</li>
-                <li>Surveying &amp; Market Research</li>
-              </ul>
-            </div>
-            <div className="ts-card">
-              <h4>Skills</h4>
-              <ul>
-                <li>Content Creation &amp; Storytelling</li>
-                <li>Audience Segmentation &amp; Targeting</li>
-                <li>Campaign Management</li>
-                <li>SEO Optimization</li>
-              </ul>
-            </div>
-          </div>
+          <div
+            className="team-photo has-img"
+            role="img"
+            aria-label="Marketing team photo"
+            style={{ backgroundImage: "url(/images/marketing.jpg)" }}
+          ></div>
         </div>
 
         <div className="team reveal">
@@ -331,40 +280,27 @@ export default function Home() {
             </div>
             <p className="desc">
               The Design Team focuses on creating engaging user experiences and
-              strong visual identities — UI/UX, branded materials, and content
+              strong visual identities. We make UI/UX, branded materials, and content
               that&apos;s visually cohesive across digital and physical form.
+              They work using Figma, Adobe Photoshop, Web development tools, and more,
+              suited to your specific needs. 
             </p>
           </div>
-          <div className="cards">
-            <div className="ts-card">
-              <h4>Tools</h4>
-              <ul>
-                <li>Figma (UI/UX Design &amp; Prototyping)</li>
-                <li>Adobe Creative Suite (Photoshop, Illustrator)</li>
-                <li>Canva</li>
-                <li>Web Development Tools</li>
-              </ul>
-            </div>
-            <div className="ts-card">
-              <h4>Skills</h4>
-              <ul>
-                <li>Graphic Design</li>
-                <li>UI/UX Design Principles</li>
-                <li>Brand Development &amp; Creation</li>
-                <li>Web Design &amp; Interface Development</li>
-              </ul>
-            </div>
-          </div>
+          <div
+            className="team-photo has-img"
+            role="img"
+            aria-label="Design team photo"
+            style={{ backgroundImage: "url(/images/design.jpg)" }}
+          ></div>
         </div>
       </section>
 
       {/* What we shipped */}
       <section className="work section" id="work" aria-label="Selected work">
         <div
-          className="section-head reveal"
+          className="section-head work-head reveal"
           style={{ borderTopColor: "rgba(255,255,255,.18)" }}
         >
-          <div className="num">003 / What we shipped</div>
           <h2>
             A few of our <span className="blue">recent partners.</span>
           </h2>

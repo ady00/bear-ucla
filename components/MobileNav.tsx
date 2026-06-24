@@ -138,9 +138,6 @@ export default function MobileNav({ active }: { active: ActiveKey }) {
               />
             </svg>
           </Link>
-          <span className="chip" title="Live status">
-            <span className="pulse"></span> Recruiting · F26
-          </span>
         </div>
       </div>
     </>

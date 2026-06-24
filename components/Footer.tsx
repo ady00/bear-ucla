@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer" aria-label="Footer">
       <div className="ftr-grid">
         <div className="ftr-brand">
-          <span className="b">Bear ✦</span>
+          <span className="b">Bear</span>
           <p className="desc">
             Bear Consulting @ UCLA — a student-run consulting group pairing
             undergraduate strategists, marketers and designers with ambitious
@@ -33,15 +33,15 @@ export default function Footer() {
           <h5>Contact</h5>
           <ul>
             <li>
-              <a href="mailto:hello@bearconsultingucla.com">
-                hello@bearconsultingucla.com
+              <a href="mailto:bearconsulting@g.ucla.edu">
+                bearconsulting@ucla.edu
               </a>
             </li>
             <li>
-              <a href="#">Instagram</a>
+              <a href="https://www.instagram.com/bearatucla">Instagram</a>
             </li>
             <li>
-              <a href="#">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/bear-consulting-at-ucla-2762b4339/">LinkedIn</a>
             </li>
           </ul>
         </div>

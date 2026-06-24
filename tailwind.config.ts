@@ -10,7 +10,7 @@ const config: Config = {
       colors: {
         blue: { DEFAULT: "#0262FB", ink: "#0147b8" },
         ink: "#0A0A0A",
-        paper: { DEFAULT: "#F6F5F1", 2: "#ECEBE4" },
+        paper: { DEFAULT: "#FAFAF8", 2: "#EFEEEA" },
         rule: "rgba(10,10,10,.12)",
       },
       fontFamily: {
