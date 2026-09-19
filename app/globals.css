@@ -1161,13 +1161,12 @@ h1.display .amp {
   /* Leave room at the bottom of every page for the FAB. */
   body { padding-bottom: 96px; }
 
-  /* Slim mobile top bar */
+  /* Slim mobile top bar — static, scrolls away with the page (the FAB
+     handles navigation once you've scrolled). */
   .mnav {
-    position: sticky; top: 0; z-index: 50;
     display: flex; align-items: center;
     padding: 12px 20px;
-    background: rgba(250, 250, 248, 0.82);
-    backdrop-filter: blur(10px);
+    background: var(--paper);
     border-bottom: 1px solid var(--rule);
   }
   .mnav-brand {
