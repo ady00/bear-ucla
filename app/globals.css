@@ -1183,10 +1183,10 @@ h1.display .amp {
   }
   .mnav-brand .mark-wrap svg { width: 20px; height: 20px; display: block; }
 
-  /* Bottom-left FAB */
+  /* Bottom-right FAB */
   .mnav-fab {
     position: fixed;
-    left: 16px;
+    right: 16px;
     bottom: max(16px, env(safe-area-inset-bottom));
     z-index: 60;
     width: 56px; height: 56px; border-radius: 50%;
@@ -1208,14 +1208,23 @@ h1.display .amp {
     background: currentColor; border-radius: 2px;
   }
 
-  /* Overlay menu */
+  /* Overlay menu.
+     Explicit offsets instead of the `inset` shorthand (unsupported on
+     older iOS WebKit, where the overlay collapsed to content size), and
+     dvh height so it tracks iOS Safari's collapsing toolbar viewport —
+     100vh fallback for browsers without dvh. */
   .mnav-overlay {
-    position: fixed; inset: 0; z-index: 70;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 70;
     background: var(--paper); color: var(--ink);
     display: none;
     flex-direction: column;
     padding: 20px 28px max(28px, env(safe-area-inset-bottom));
     overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .mnav-overlay.is-open { display: flex; }
   .mnav-overlay-head {
@@ -1421,7 +1430,7 @@ h1.display .amp {
     font-size: 11.5px;
   }
   .mnav { padding: 10px 14px; }
-  .mnav-fab { width: 52px; height: 52px; left: 14px; }
+  .mnav-fab { width: 52px; height: 52px; right: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
