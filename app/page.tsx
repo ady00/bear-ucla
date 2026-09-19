@@ -12,7 +12,7 @@ export default function Home() {
       <MobileNav active="home" />
 
       {/* Hero */}
-      <section className="hero" aria-label="Hero">
+      <section className="hero pb-10" aria-label="Hero">
         <div className="hero-grid">
           <div className="headline-col">
             <div className="eyebrow">
@@ -49,8 +49,8 @@ export default function Home() {
               non-profits and campus ventures. 
             </p>
 
-            <div className="cta-row my-4">
-              <Link className="btn my-4" href="/recruitment">
+            <div className="cta-row">
+              <Link className="btn" href="/recruitment">
                 Apply for Fall 2026
                 <svg
                   className="arrow"
@@ -68,19 +68,12 @@ export default function Home() {
                   />
                 </svg>
               </Link>
-              <a className="btn-ghost my-4" href="#work">
+              <a className="btn-ghost" href="#work">
                 View Our Work
                 <span aria-hidden="true">→</span>
               </a>
             </div>
 
-            <div className="hero-mobile-caption" aria-hidden="true">
-              Est. 2017 · Los Angeles
-              <br />
-              Tuesdays @ Royce Hall.
-            </div>
-
-            <div className="mb-20"></div>
           </div>
 
           <div className="bear-col">
@@ -97,17 +90,42 @@ export default function Home() {
                   transform="translate(0,-12)"
                 />
               </svg>
-              <div className = "pt-10">
-                
-                <div className="corner bl pt-10" style={{ fontSize: "10px" }}>
-                <br />Established 2017.
-                <br />
-                Tuesdays @ Royce Hall.
-                <span className="big"></span>
-              </div>
-              </div>
-              
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What we do */}
+      <section className="section section--tight lg:mt-20" id="what" aria-label="What we do">
+        <div className="section-head no-num reveal">
+          <h2 style={{ maxWidth: "none", whiteSpace: "nowrap" }}>
+            Meet the <span className="blue">Team.</span>
+          </h2>
+        </div>
+        <div className="intro-grid reveal">
+          <div
+            className="club-photo has-img"
+            role="img"
+            aria-label="Photo of the Bear Consulting team"
+            style={{ backgroundImage: "url(/images/team-full.jpg)" }}
+          ></div>
+          <div>
+            <p>
+              Our opportunities in strategy, marketing, and design
+              allow members to gain hands-on experience across various fields.
+            </p>
+            <p>
+              Projects vary based on the needs of each organization, and our
+              goal is to provide <em>actionable recommendations</em> that
+              drive impact, while fostering learning
+              for our team members.
+            </p>
+            <p>
+            We boast three teams which specialize in a range of services, tailored to 
+            meet the unique needs of each client. Every project is handled by a team
+          specifically assembled to address the goals and challenges of your
+          particular organization.
+            </p>
           </div>
         </div>
       </section>
@@ -168,41 +186,6 @@ export default function Home() {
             <span className="pstar">✦</span>
             <span>Marketing</span>
             <span className="pstar">✦</span>
-          </div>
-        </div>
-      </section>
-
-      {/* What we do */}
-      <section className="section section--tight" id="what" aria-label="What we do">
-        <div className="section-head no-num reveal">
-          <h2 style={{ maxWidth: "none", whiteSpace: "nowrap" }}>
-            Meet the <span className="blue">Team.</span>
-          </h2>
-        </div>
-        <div className="intro-grid reveal">
-          <div
-            className="club-photo has-img"
-            role="img"
-            aria-label="Photo of the Bear Consulting team"
-            style={{ backgroundImage: "url(/images/team-full.jpg)" }}
-          ></div>
-          <div>
-            <p>
-              Our opportunities in strategy, marketing, and design
-              allow members to gain hands-on experience across various fields.
-            </p>
-            <p>
-              Projects vary based on the needs of each organization, and our
-              goal is to provide <em>actionable recommendations</em> that
-              drive impact, while fostering learning
-              for our team members.
-            </p>
-            <p>
-            We boast three teams which specialize in a range of services, tailored to 
-            meet the unique needs of each client. Every project is handled by a team
-          specifically assembled to address the goals and challenges of your
-          particular organization.
-            </p>
           </div>
         </div>
       </section>

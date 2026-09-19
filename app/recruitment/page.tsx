@@ -9,30 +9,29 @@ export const metadata: Metadata = {
 
 const timeline = [
   {
-    date: "Sep 14",
-    what: "Applications Open",
-    det: "Online application goes live. Apply for one or more teams.",
-  },
-  {
-    date: "Sep 22",
+    date: "Sep 29",
     what: "Info Session",
     det: "Our executive board provides a rundown of the application process in-person.",
   },
   {
-    date: "Sep 22",
+    date: "Oct 2",
+    what: "Application Deadline",
+    det: "Applications close. Apply for one or more teams before then.",
+  },
+  {
+    date: "Oct 4",
+    what: "Coffee Chat Invites",
+    det: "Invitations go out to applicants moving forward in the process.",
+  },
+  {
+    date: "By Oct 7",
     what: "Coffee Chats",
     det: "Meet our members and get to know them in a more casual group setting.",
   },
-  
   {
-    date: "Oct 3 — 12",
+    date: "By Oct 9",
     what: "Final Interviews",
     det: "Two parts: a behavioral conversation and a team-specific case or portfolio review.",
-  },
-  {
-    date: "Oct 18",
-    what: "Offers Out",
-    det: "New cohort announced. Onboarding begins the next week.",
   },
 ];
 
@@ -94,19 +93,37 @@ export default function RecruitmentPage() {
               <span className="blue">BEAR.</span>
             </h1>
           </div>
-          <p className="ph-lede">
-            We recruit one cohort each fall. New consultants join one of three
-            teams (<em>strategy, marketing, or design</em>) and are placed
-            onto real client engagements from there.
-          </p>
+          <div>
+            <p className="ph-lede">
+              We recruit one cohort each fall. New consultants join one of three
+              teams (<em>strategy, marketing, or design</em>) and are placed
+              onto real client engagements from there.
+            </p>
+            <p>
+              Check our{" "}
+              <a
+                href="https://www.instagram.com/bearatucla"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "var(--blue)",
+                  fontWeight: 500,
+                  textDecoration: "underline",
+                  textUnderlineOffset: "3px",
+                }}
+              >
+                Instagram
+              </a>{" "}
+              for live application process updates!
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Timeline */}
       <section className="section">
         <div className="swrap">
-          <div className="sh">
-            <div className="num">001 / Timeline</div>
+          <div className="sh no-num">
             <h2>
               Recruitment <span className="blue">timeline.</span>
             </h2>
@@ -114,6 +131,7 @@ export default function RecruitmentPage() {
           <div className="tl-rail">
             {timeline.map((t) => (
               <div className="tl-cell" key={t.what}>
+                <div className="date">{t.date}</div>
                 <div className="what">{t.what}</div>
                 <p className="det">{t.det}</p>
               </div>
@@ -125,8 +143,7 @@ export default function RecruitmentPage() {
       {/* How to apply */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="swrap">
-          <div className="sh">
-            <div className="num">002 / How to Apply</div>
+          <div className="sh no-num">
             <h2>
               The rounds. <span className="blue"></span>
             </h2>
@@ -146,8 +163,7 @@ export default function RecruitmentPage() {
       {/* FAQ */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="swrap">
-          <div className="sh">
-            <div className="num">003 / FAQ</div>
+          <div className="sh no-num">
             <h2>
               Common <span className="blue">questions.</span>
             </h2>

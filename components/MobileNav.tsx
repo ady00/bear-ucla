@@ -110,6 +110,9 @@ export default function MobileNav({ active }: { active: ActiveKey }) {
               onClick={() => setOpen(false)}
             >
               {l.label}
+              {l.key === "recruitment" && (
+                <span className="live-tag">(Live!)</span>
+              )}
             </Link>
           ))}
         </nav>

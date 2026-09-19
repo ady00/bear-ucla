@@ -73,7 +73,7 @@ export default function ProcessPage() {
             </h1>
           </div>
           <p className="ph-lede">
-            {"\n\n"}Our process is <em>tailor-made</em> to fit every
+            Our process is <em>tailor-made</em> to fit every
             client&apos;s needs. During the kickoff call, we&apos;ll figure out
             what our engagement together might look like. Below is a general
             framework for what you can expect from us on a project.
@@ -110,6 +110,9 @@ export default function ProcessPage() {
                   data-name={p.name}
                   role="listitem"
                 >
+                  <div className="num">
+                    {p.num} / 0{phases.length}
+                  </div>
                   <div className="when">{p.when}</div>
                   <h3>{p.name}</h3>
                   <p>{p.body}</p>

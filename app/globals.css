@@ -111,6 +111,25 @@ body::before {
 .navlinks a:hover::after,
 .navlinks a.is-active::after { right: 0; }
 .nav-cta { display: flex; align-items: center; gap: 10px; }
+/* "(Live!)" tag on the Recruitment tab — subtle red breathing pulse. */
+.live-tag {
+  color: #e11d48;
+  animation: livePulse 1.8s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+/* Inside the big display-font mobile menu links, keep the tag small and
+   in the UI sans so it reads as a badge, not part of the word. */
+.mnav-link .live-tag {
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  vertical-align: middle;
+  margin-left: 10px;
+}
 .chip {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 5px 10px; border: 1px solid var(--ink); border-radius: 999px;
@@ -297,9 +316,7 @@ h1.display .amp {
 .bear-frame:hover::before { opacity: 0.35; }
 .bear-img {
   position: absolute; inset: 0;
-  /* Raised from 58% → 42% so the bear sits higher in the frame,
-     leaving more visual breathing room above the "Est. 2017" caption
-     at the bottom-left. */
+  /* 42% keeps the bear sitting high in the frame. */
   background: url("/assets/bear-halftone-bw.png") center 42% / 96% no-repeat;
   filter: brightness(0) invert(1);
   opacity: 0.95;
@@ -314,24 +331,6 @@ h1.display .amp {
   animation: spin 26s linear infinite;
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.12));
 }
-.corner {
-  position: absolute;
-  font-family: var(--font-sans), sans-serif; font-weight: 600;
-  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--paper);
-}
-.corner.bl {
-  left: 22px; bottom: 22px;
-  /* Extra padding-top so the caption block holds its own breathing
-     room from the halftone above, on top of the raised bg-position. */
-  padding-top: 28px;
-}
-.corner .big {
-  font-family: var(--font-display), sans-serif;
-  font-size: 26px; letter-spacing: 0.04em; color: var(--paper);
-  display: block; margin-top: 8px;
-}
-
 /* ===== Section scaffold ===== */
 /* Trimmed from 140px → 96px — section padding was disproportionate to
    the content beneath it and produced a lot of dead vertical space. */
@@ -852,7 +851,11 @@ h1.display .amp {
   letter-spacing: 0.1em; text-transform: uppercase;
   color: rgba(10, 10, 10, 0.6); margin-bottom: 10px;
 }
+/* Per-step number — mobile replacement for the sticky phase indicator,
+   which is hidden below 1080px. Hidden on desktop where the big sticky
+   number already carries this information. */
 .pstep .num {
+  display: none;
   font-family: var(--font-sans), sans-serif; font-weight: 600; font-size: 12px;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--blue); margin-bottom: 8px;
@@ -974,6 +977,8 @@ h1.display .amp {
   display: flex; align-items: center; gap: 14px;
 }
 .sh .num::after { content: ""; height: 1px; flex: 1; background: var(--rule); }
+/* Heads with no meta number collapse to one column (same as .section-head). */
+.sh.no-num { grid-template-columns: 1fr; }
 .sh h2 {
   font-family: var(--font-display), sans-serif; font-weight: 400;
   font-size: clamp(40px, 5.6vw, 88px); line-height: 0.92;
@@ -1110,10 +1115,12 @@ h1.display .amp {
   .ph-grid,
   .ph-grid:has(.ph-media) { grid-template-columns: 1fr; gap: 32px; }
   .process { padding: 56px 24px 80px; }
-  .process-rail { grid-template-columns: 1fr; gap: 16px; }
-  .phase-stick { position: relative; top: auto; flex-direction: row; align-items: center; gap: 18px; flex-wrap: wrap; }
-  .phase-stick .ph-num { font-size: 96px; }
-  .phase-stick .ph-bar { width: 160px; }
+  .process-rail { grid-template-columns: 1fr; gap: 0; }
+  /* The sticky phase indicator can't stick in a single-column layout —
+     it collapsed into an awkward wrapped row. Hide it and show the
+     per-step number inside each step instead. */
+  .phase-stick { display: none; }
+  .pstep .num { display: block; }
   .pstep { min-height: auto; padding: 28px 0 36px 24px; }
   .members { padding: 56px 24px 80px; }
   .m-head { margin-bottom: 28px; padding-top: 24px; }
@@ -1146,8 +1153,7 @@ h1.display .amp {
 /* Mobile nav surfaces are hidden by default (desktop). */
 .mnav,
 .mnav-fab,
-.mnav-overlay,
-.hero-mobile-caption { display: none; }
+.mnav-overlay { display: none; }
 
 @media (max-width: 1024px) {
   /* Hide desktop nav, expose mobile nav. */
@@ -1270,21 +1276,16 @@ h1.display .amp {
   .mnav-foot .chip { align-self: flex-start; }
 
   /* Hero — drop bear column, single column */
-  .hero { padding: 16px 20px 32px; min-height: 0; }
+  .hero { padding: 16px 20px 40px; min-height: 0; }
   .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .hero .bear-col { display: none; }
+  /* The home hero eyebrow is an empty accent line — on mobile it reads
+     as a stray dash above the headline, so drop it. */
+  .hero .eyebrow { display: none; }
   /* Override inline whiteSpace: nowrap on the "Hands-on. By design." h2. */
   #what .section-head h2 { white-space: normal !important; }
   .lede { max-width: none; font-size: 17px; margin-top: 18px; }
   .cta-row { gap: 10px; margin-top: 18px; }
-  .hero-mobile-caption {
-    display: block;
-    margin-top: 28px;
-    font-family: var(--font-sans), sans-serif; font-weight: 600;
-    font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(10, 10, 10, 0.5);
-    line-height: 1.7;
-  }
 
   /* Parallax bands — tighten gap, keep behavior */
   .pband-track { gap: 40px; }
@@ -1330,10 +1331,6 @@ h1.display .amp {
 
   /* Process */
   .process { padding: 40px 20px 64px; }
-  .process-rail { gap: 16px; }
-  .phase-stick { position: static; flex-direction: row; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .phase-stick .ph-num { font-size: 80px; }
-  .phase-stick .ph-bar { width: 140px; }
   .pstep { padding: 24px 0 30px 22px; }
 
   /* Members */
@@ -1393,8 +1390,6 @@ h1.display .amp {
   .ph { padding: 32px 16px 24px; }
 
   .process { padding: 32px 16px 48px; }
-  .phase-stick .ph-num { font-size: 64px; }
-  .phase-stick .ph-bar { width: 110px; }
   .pstep { padding: 20px 0 26px 18px; }
   .pstep h3 { font-size: clamp(26px, 8vw, 36px); }
 
@@ -1438,4 +1433,5 @@ h1.display .amp {
     animation: none !important;
   }
   .chip .pulse { animation: none; }
+  .live-tag { animation: none; }
 }
