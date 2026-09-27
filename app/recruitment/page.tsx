@@ -116,6 +116,32 @@ export default function RecruitmentPage() {
               </a>{" "}
               for live application process updates!
             </p>
+            <div className="ph-actions">
+              <a
+                className="btn"
+                href="https://docs.google.com/forms/d/10WnoG9RN3ananrEasLZEz0flXPw4QJUihLEmmOgrqWY/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Apply Now
+                <svg
+                  className="arrow"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2 14 L14 2 M5 2 H14 V11"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>
