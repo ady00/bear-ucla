@@ -46,7 +46,7 @@ export default function Nav({ active }: { active: ActiveKey }) {
           Our Process
         </Link>
         <Link className={cls("recruitment")} href="/recruitment">
-          Recruitment <span className="live-tag">(Live!)</span>
+          Recruitment
         </Link>
       </nav>
       <div className="nav-cta">

@@ -7,9 +7,7 @@ export default function ProcessParallax() {
     const steps = document.querySelectorAll<HTMLElement>("#phaseList .pstep");
     const numEl = document.getElementById("phNum");
     const nameEl = document.getElementById("phName");
-    const barEl = document.getElementById("phBar");
-    const ofEl = document.getElementById("phOf");
-    if (!steps.length || !numEl || !nameEl || !barEl || !ofEl) return;
+    if (!steps.length || !numEl || !nameEl) return;
 
     let currentIdx = -1;
     const setActive = (idx: number) => {
@@ -18,9 +16,7 @@ export default function ProcessParallax() {
       const s = steps[idx];
       if (!s) return;
       numEl.textContent = s.dataset.num || "";
-      nameEl.innerHTML = s.dataset.name || "";
-      ofEl.textContent = String(idx + 1);
-      barEl.style.width = ((idx + 1) / steps.length) * 100 + "%";
+      nameEl.textContent = s.dataset.name || "";
       steps.forEach((el, i) =>
         el.classList.toggle("is-current", i === idx)
       );

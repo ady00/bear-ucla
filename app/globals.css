@@ -111,25 +111,6 @@ body::before {
 .navlinks a:hover::after,
 .navlinks a.is-active::after { right: 0; }
 .nav-cta { display: flex; align-items: center; gap: 10px; }
-/* "(Live!)" tag on the Recruitment tab — subtle red breathing pulse. */
-.live-tag {
-  color: #e11d48;
-  animation: livePulse 1.8s ease-in-out infinite;
-}
-@keyframes livePulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
-}
-/* Inside the big display-font mobile menu links, keep the tag small and
-   in the UI sans so it reads as a badge, not part of the word. */
-.mnav-link .live-tag {
-  font-family: var(--font-sans), sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  vertical-align: middle;
-  margin-left: 10px;
-}
 .chip {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 5px 10px; border: 1px solid var(--ink); border-radius: 999px;
@@ -769,6 +750,18 @@ h1.display .amp {
   max-width: 52ch;
 }
 .ph-lede em { font-style: italic; color: var(--blue); font-weight: 500; }
+/* "Recruitment has ended" notice above the recruitment page lede. */
+.ended-note {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--blue-soft);
+  border: 1px solid rgba(2, 98, 251, 0.18);
+  font-family: var(--font-sans), sans-serif; font-weight: 600;
+  font-size: 13px; line-height: 1.45; letter-spacing: 0.02em;
+  color: var(--blue);
+}
 .ph-lede + p {
   margin-top: 18px;
   font-family: var(--font-body), sans-serif; font-weight: 300;
@@ -805,20 +798,6 @@ h1.display .amp {
   transition: color 0.4s ease;
 }
 .phase-stick .ph-num .blu { color: var(--blue); }
-.phase-stick .ph-of {
-  font-family: var(--font-sans), sans-serif; font-weight: 600; font-size: 11px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(10, 10, 10, 0.5);
-}
-.phase-stick .ph-bar {
-  margin-top: 12px; height: 4px;
-  background: var(--rule); border-radius: 999px;
-  overflow: hidden; width: 240px;
-}
-.phase-stick .ph-bar > div {
-  height: 100%; background: var(--blue); width: 0;
-  transition: width 0.6s cubic-bezier(.2, .8, .2, 1);
-}
 .phase-stick .ph-name {
   font-family: var(--font-display), sans-serif; font-weight: 400;
   font-size: 22px; line-height: 1.05; text-transform: uppercase;
@@ -1441,5 +1420,4 @@ h1.display .amp {
     animation: none !important;
   }
   .chip .pulse { animation: none; }
-  .live-tag { animation: none; }
 }

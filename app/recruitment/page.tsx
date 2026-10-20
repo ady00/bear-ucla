@@ -94,6 +94,10 @@ export default function RecruitmentPage() {
             </h1>
           </div>
           <div>
+            <p className="ended-note">
+              Recruitment for Fall &apos;26 has ended. Thank you to everyone
+              who applied!
+            </p>
             <p className="ph-lede">
               We recruit one cohort each fall. New consultants join one of three
               teams (<em>strategy, marketing, or design</em>) and are placed

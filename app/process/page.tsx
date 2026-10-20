@@ -93,12 +93,6 @@ export default function ProcessPage() {
               <div className="ph-name" id="phName">
                 Intro Call
               </div>
-              <div className="ph-bar">
-                <div id="phBar"></div>
-              </div>
-              <div className="ph-of">
-                <span id="phOf">1</span> of {phases.length}
-              </div>
             </aside>
 
             <div className="timeline" role="list" id="phaseList">
@@ -110,9 +104,7 @@ export default function ProcessPage() {
                   data-name={p.name}
                   role="listitem"
                 >
-                  <div className="num">
-                    {p.num} / 0{phases.length}
-                  </div>
+                  <div className="num">{p.num}</div>
                   <div className="when">{p.when}</div>
                   <h3>{p.name}</h3>
                   <p>{p.body}</p>
